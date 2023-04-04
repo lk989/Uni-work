@@ -2,7 +2,6 @@ package com.example.atm;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -29,93 +29,107 @@ public class HelloApplication extends Application {
         BorderPane pane = new BorderPane();
 
         //top
-        Text atm = new Text("ATM");
-        atm.setFont((Font.font("Impact", FontWeight.BOLD, 40)));
-        atm.setFill(Color.WHITE);
-        Button card_return = new Button("Card Return");
-        card_return.setStyle("-fx-font-size: 1.2em; ");
-        card_return.setBorder(null);
-        HBox header = new HBox(685);
-        header.getChildren().addAll(atm, card_return);
-        header.setPadding(new Insets(20, 10, 0, 30));
-        pane.setTop(header);
+        Label atm = new Label("ATM");
+        atm.setFont((Font.font("Impact", FontWeight.BOLD, 80)));
+        atm.setStyle("-fx-text-fill: white;");
+        atm.setPadding(new Insets(40, 10, 0, 50));
+        pane.setTop(atm);
 
         //left
         Text welcome = new Text("Welcome:");
         welcome.setFill(Color.GRAY);
-        welcome.setFont((Font.font("Impact", FontWeight.BOLD, 15)));
+        welcome.setFont((Font.font("Impact", FontWeight.BOLD, 20)));
 
         Text name = new Text("Lama Bugis");
         name.setFill(Color.WHITE);
-        name.setFont((Font.font("Impact", FontWeight.BOLD, 17)));
+        name.setFont((Font.font("Impact", FontWeight.BOLD, 22)));
 
         Text account = new Text("Account #1 :");
         account.setFill(Color.GRAY);
-        account.setFont((Font.font("Impact", FontWeight.BOLD, 15)));
+        account.setFont((Font.font("Impact", FontWeight.BOLD, 20)));
 
         Text acount_balance = new Text("$5.245,69");
         acount_balance.setFill(Color.WHITE);
-        acount_balance.setFont((Font.font("Impact", FontWeight.BOLD, 17)));
+        acount_balance.setFont((Font.font("Impact", FontWeight.BOLD, 22)));
 
         Text savings = new Text("Saving #1 :");
         savings.setFill(Color.GRAY);
-        savings.setFont((Font.font("Impact", FontWeight.BOLD, 15)));
+        savings.setFont((Font.font("Impact", FontWeight.BOLD, 20)));
 
         Text saving_balance = new Text("$794,98");
         saving_balance.setFill(Color.WHITE);
-        saving_balance.setFont((Font.font("Impact", FontWeight.BOLD, 17)));
+        saving_balance.setFont((Font.font("Impact", FontWeight.BOLD, 22)));
+
+        Button card_return = new Button("Card Return");
+        card_return.setStyle("-fx-font-size: 1.1em; -fx-background-color: slategray; -fx-text-fill: white");
 
         VBox left = new VBox(10);
-        left.getChildren().addAll(welcome, name, account, acount_balance, savings, saving_balance);
-        left.setPadding(new Insets(100, 20, 0, 50));
+        left.getChildren().addAll(welcome, name, account, acount_balance, savings, saving_balance, card_return);
+        left.setPadding(new Insets(30, 0, 0, 60));
         pane.setLeft(left);
 
         //center
-        VBox center = new VBox(5);
+        VBox center = new VBox(10);
         center.setPrefWidth(300);
         Button get_cash = new Button("Get Cach");
+        get_cash.setStyle("-fx-font-size: 1.8em; -fx-font-family: Impact;");
         get_cash.setMinWidth(300);
         get_cash.setMinHeight(70);
         Button payments = new Button("Payments");
+        payments.setStyle("-fx-font-size: 1.8em; -fx-font-family: Impact;");
         payments.setMinWidth(300);
         payments.setMinHeight(70);
         Button account_settings = new Button("Account Settings");
+        account_settings.setStyle("-fx-font-size: 1.8em; -fx-font-family: Impact;");
         account_settings.setMinWidth(300);
         account_settings.setMinHeight(70);
         center.getChildren().addAll(get_cash, payments, account_settings);
-        center.setPadding(new Insets(80, 20, 0, 100));
+        center.setPadding(new Insets(25, 20, 0, 90));
         pane.setCenter(center);
 
         //right
-        VBox right = new VBox(5);
+        VBox right = new VBox(10);
         right.setPrefWidth(300);
         Button deposite = new Button("Deposite");
+        deposite.setStyle("-fx-font-size: 1.8em; -fx-font-family: Impact;");
         deposite.setMinWidth(300);
         deposite.setMinHeight(70);
         Button credit_card = new Button("Credit Card");
+        credit_card.setStyle("-fx-font-size: 1.8em; -fx-font-family: Impact;");
         credit_card.setMinWidth(300);
         credit_card.setMinHeight(70);
         Button other = new Button("Other");
+        other.setStyle("-fx-font-size: 1.8em; -fx-font-family: Impact;");
         other.setMinWidth(300);
         other.setMinHeight(70);
         right.getChildren().addAll(deposite, credit_card, other);
-        right.setPadding(new Insets(80, 20, 0, 0));
+        right.setPadding(new Insets(25, 20, 0, 0));
         pane.setRight(right);
 
         //bottom
-        HBox bottom = new HBox(10);
-        Label red = new Label("Quick cash: ");
-        red.setAlignment(Pos.BASELINE_LEFT);
-        red.setStyle("-fx-background-color: maroon; -fx-text-fill: white;");
-        red.setFont((Font.font("Impact", FontWeight.NORMAL, 20)));
-        red.setMinHeight(50);
-        red.setMinWidth(400);
-        red.setPadding(new Insets(0, 0, 0, 5));
+        HBox bottom = new HBox(20);
+        
+        Label red = new Label();
+        red.setStyle("-fx-background-color: lightgray;");
+        red.setPrefWidth(450);
+        red.setPrefHeight(45);
+
+        Label quick_cash = new Label("Quick Cash");
+        quick_cash.setStyle("-fx-text-fill: dimgrey;");
+        quick_cash.setFont((Font.font("Impact", FontWeight.NORMAL, 20)));
+        
         TextField amount = new TextField("Enter the amount");
-        amount.setMaxWidth(50);
-        bottom.getChildren().addAll(red);
-        bottom.setPadding(new Insets(50, 59, 0, 350));
-        pane.setBottom(bottom);
+        amount.setPrefWidth(230);
+
+        Button withdraw = new Button("Done");
+        
+        bottom.getChildren().addAll(quick_cash, amount, withdraw);
+        bottom.setPadding(new Insets(10, 0, 0, 140));
+        
+        StackPane bottom_pane = new StackPane(red, bottom);
+        bottom_pane.setPadding(new Insets(10, 0, 0, 195));
+
+        pane.setBottom(bottom_pane);
 
 
         //grouping
