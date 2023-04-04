@@ -1,12 +1,13 @@
 package com.example.atm;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -14,7 +15,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -103,12 +103,18 @@ public class HelloApplication extends Application {
         pane.setRight(right);
 
         //bottom
-        HBox bottom = new HBox();
-        Label red = new Label("Quick cash");
+        HBox bottom = new HBox(10);
+        Label red = new Label("Quick cash: ");
+        red.setAlignment(Pos.BASELINE_LEFT);
         red.setStyle("-fx-background-color: maroon; -fx-text-fill: white;");
+        red.setFont((Font.font("Impact", FontWeight.NORMAL, 20)));
         red.setMinHeight(50);
         red.setMinWidth(400);
-        bottom.getChildren().add(red);
+        red.setPadding(new Insets(0, 0, 0, 5));
+        TextField amount = new TextField("Enter the amount");
+        amount.setMaxWidth(50);
+        bottom.getChildren().addAll(red);
+        bottom.setPadding(new Insets(50, 59, 0, 350));
         pane.setBottom(bottom);
 
 
