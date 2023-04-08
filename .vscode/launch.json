@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ATMinterface",
+            "request": "launch",
+            "mainClass": "com.example.atm/com.example.atm.ATMinterface",
+            "projectName": "ATM"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
