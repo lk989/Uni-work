@@ -30,7 +30,7 @@ public class ATMinterface extends Application {
 
         //top
         Label atm = new Label("ATM");
-        atm.setFont((Font.font("Impact", FontWeight.BOLD, 80)));
+        atm.setFont(Font.font("Impact", FontWeight.BOLD, 80));
         atm.setStyle("-fx-text-fill: white;");
         atm.setPadding(new Insets(40, 10, 0, 50));
         pane.setTop(atm);
